@@ -61,6 +61,12 @@ input { font-family: inherit; }
   pointer-events: none; z-index: 99998;
 }
 
+/* --- Rain Background Canvas --- */
+#rain-bg {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+}
+
 /* --- Noise Overlay --- */
 body::after {
   content: '';

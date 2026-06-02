@@ -80,6 +80,7 @@
   }
 
   function initAfterUnlock() {
+    initRain();
     initTimeCounter();
     initPolaroids();
     initTracklist();
@@ -87,6 +88,67 @@
     initScrollAnimations();
     initParallax();
     if (!isTouchDevice()) initCursorTrail();
+  }
+
+  // ============================================
+  // RAIN BACKGROUND
+  // ============================================
+  function initRain() {
+    const canvas = document.getElementById('rain-bg');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let drops = [];
+    const DROP_COUNT = 60; // subtle, not overwhelming
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Initialize drops
+    for (let i = 0; i < DROP_COUNT; i++) {
+      drops.push(createDrop());
+    }
+
+    function createDrop() {
+      return {
+        x: Math.random() * (canvas.width + 100) - 50,
+        y: Math.random() * canvas.height * -1 - 20,
+        length: Math.random() * 18 + 8,
+        speed: Math.random() * 2.5 + 1.5,
+        opacity: Math.random() * 0.12 + 0.03,
+        wind: 0.3
+      };
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      drops.forEach(drop => {
+        ctx.beginPath();
+        ctx.moveTo(drop.x, drop.y);
+        ctx.lineTo(drop.x + drop.wind * drop.length * 0.5, drop.y + drop.length);
+        ctx.strokeStyle = `rgba(40, 80, 140, ${drop.opacity})`;
+        ctx.lineWidth = 1;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+
+        // Move drop
+        drop.y += drop.speed;
+        drop.x += drop.wind;
+
+        // Reset when off screen
+        if (drop.y > canvas.height + 20) {
+          drop.y = -drop.length - Math.random() * 40;
+          drop.x = Math.random() * (canvas.width + 100) - 50;
+        }
+      });
+
+      requestAnimationFrame(animate);
+    }
+    animate();
   }
 
   // ============================================
