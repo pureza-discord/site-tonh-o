@@ -98,7 +98,7 @@
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
     let drops = [];
-    const DROP_COUNT = 60; // subtle, not overwhelming
+    const DROP_COUNT = 100; // um pouco mais de gotas para preencher melhor
 
     function resize() {
       canvas.width = window.innerWidth;
@@ -113,13 +113,15 @@
     }
 
     function createDrop() {
+      const zIndex = Math.random(); // 0 a 1 (profundidade). 1 = mais perto.
       return {
-        x: Math.random() * (canvas.width + 100) - 50,
+        x: Math.random() * (canvas.width + 200) - 100,
         y: Math.random() * canvas.height * -1 - 20,
-        length: Math.random() * 18 + 8,
-        speed: Math.random() * 2.5 + 1.5,
-        opacity: Math.random() * 0.12 + 0.03,
-        wind: 0.3
+        length: zIndex * 25 + 10, // gotas mais próximas são mais longas (10 a 35)
+        speed: zIndex * 12 + 6,   // mais próximas caem mais rápido (6 a 18)
+        opacity: zIndex * 0.35 + 0.1, // mais próximas são mais visíveis (0.1 a 0.45)
+        wind: zIndex * 1.5 + 0.5, // vento afeta mais as gotas próximas
+        width: zIndex * 1.5 + 0.5 // gotas próximas são mais grossas
       };
     }
 
@@ -129,9 +131,10 @@
       drops.forEach(drop => {
         ctx.beginPath();
         ctx.moveTo(drop.x, drop.y);
-        ctx.lineTo(drop.x + drop.wind * drop.length * 0.5, drop.y + drop.length);
-        ctx.strokeStyle = `rgba(40, 80, 140, ${drop.opacity})`;
-        ctx.lineWidth = 1;
+        ctx.lineTo(drop.x + drop.wind * 2, drop.y + drop.length);
+        // Um tom de azul marinho vibrante e elegante
+        ctx.strokeStyle = `rgba(50, 100, 180, ${drop.opacity})`;
+        ctx.lineWidth = drop.width;
         ctx.lineCap = 'round';
         ctx.stroke();
 
@@ -141,8 +144,8 @@
 
         // Reset when off screen
         if (drop.y > canvas.height + 20) {
-          drop.y = -drop.length - Math.random() * 40;
-          drop.x = Math.random() * (canvas.width + 100) - 50;
+          drop.y = -drop.length - Math.random() * 50;
+          drop.x = Math.random() * (canvas.width + 200) - 100;
         }
       });
 
