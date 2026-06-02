@@ -10,11 +10,11 @@
   const PASSWORD = '0205';
   // May 2, 2026 at 00:00 in UTC-3 (BRT)
   const RELATIONSHIP_DATE = new Date(Date.UTC(2026, 4, 2, 3, 0, 0)); // UTC+3h = midnight BRT
-  const PHOTO_COUNT = 12;
+  const PHOTO_COUNT = 9;
   const POLAROID_CAPTIONS = [
-    'Nós dois ♡', 'Momento especial', 'Pra sempre',
-    'Te amo', 'Nosso mundo', 'Juntos', 'Saudade boa',
-    'Meu amor', 'Felicidade', 'Eternos', 'Nós ♡', 'Amor'
+    'Nós dois', 'Juntos', 'Pra Sempre',
+    'Eu sempre', 'Sempre', 'Eu',
+    'Vou', 'Te amar', 'Mel'
   ];
 
   // === DOM REFS ===
@@ -143,6 +143,25 @@
 
       grid.appendChild(polaroid);
     }
+
+    // Special 10th polaroid with SVG heart
+    const heartPolaroid = document.createElement('div');
+    heartPolaroid.className = 'polaroid';
+    heartPolaroid.style.transform = `rotate(${(Math.random() - 0.5) * 8}deg)`;
+    heartPolaroid.innerHTML = `
+      <div class="polaroid-tape"></div>
+      <div class="polaroid-img-wrap" style="display:flex;align-items:center;justify-content:center;background:#1a1a1a;">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="#B0005E" style="filter:drop-shadow(0 0 12px rgba(176,0,94,0.5));">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      </div>
+      <div class="polaroid-caption">♡</div>
+    `;
+    heartPolaroid.addEventListener('touchstart', function () {
+      document.querySelectorAll('.polaroid.touched').forEach(p => p.classList.remove('touched'));
+      this.classList.add('touched');
+    });
+    grid.appendChild(heartPolaroid);
   }
 
   // ============================================
