@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Uma declaração de amor especial para Melanie. 1 mês de puro amor e veracidade.">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Antonio & Melanie — Nossa História</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cursor Trail (desktop only) -->
+  <canvas id="cursor-trail"></canvas>
+
+  <!-- ============================================
+       GATEKEEPER — Tela de Acesso Exclusivo
+       ============================================ -->
+  <div id="gatekeeper">
+    <div class="gate-bg"></div>
+    <div class="gate-card" id="gate-card">
+      <!-- Decorative SVG flowers -->
+      <svg class="gate-decor gate-decor-1" viewBox="0 0 120 120" fill="none">
+        <g opacity="0.7">
+          <ellipse cx="60" cy="30" rx="12" ry="28" fill="currentColor" transform="rotate(0 60 60)"/>
+          <ellipse cx="60" cy="30" rx="12" ry="28" fill="currentColor" transform="rotate(72 60 60)"/>
+          <ellipse cx="60" cy="30" rx="12" ry="28" fill="currentColor" transform="rotate(144 60 60)"/>
+          <ellipse cx="60" cy="30" rx="12" ry="28" fill="currentColor" transform="rotate(216 60 60)"/>
+          <ellipse cx="60" cy="30" rx="12" ry="28" fill="currentColor" transform="rotate(288 60 60)"/>
+          <circle cx="60" cy="60" r="8" fill="currentColor"/>
+        </g>
+      </svg>
+      <svg class="gate-decor gate-decor-2" viewBox="0 0 100 100" fill="none">
+        <path d="M50 10 Q60 30 50 50 Q40 70 50 90" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <ellipse cx="38" cy="35" rx="8" ry="4" fill="currentColor" transform="rotate(-30 38 35)"/>
+        <ellipse cx="62" cy="55" rx="8" ry="4" fill="currentColor" transform="rotate(25 62 55)"/>
+        <ellipse cx="42" cy="75" rx="6" ry="3" fill="currentColor" transform="rotate(-20 42 75)"/>
+      </svg>
+
+      <!-- Lock Icon -->
+      <svg class="gate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        <circle cx="12" cy="16" r="1" fill="currentColor"/>
+      </svg>
+
+      <h1 class="gate-title">Acesso Exclusivo</h1>
+      <p class="gate-subtitle">Digite nossa data especial para entrar</p>
+
+      <div class="gate-input-wrap">
+        <input type="text" class="gate-input" id="gate-input"
+               placeholder="DDMM" maxlength="4" inputmode="numeric" autocomplete="off">
+      </div>
+      <button class="gate-btn" id="gate-btn">Entrar</button>
+      <p class="gate-error" id="gate-error">Data incorreta, tente novamente...</p>
+    </div>
+  </div>
+
+  <!-- ============================================
+       MAIN CONTENT
+       ============================================ -->
+  <main id="main-content">
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+      <div class="hero-bg"></div>
+
+      <!-- Parallax decorative layers -->
+      <div class="parallax-layer" id="parallax-1">
+        <svg viewBox="0 0 100 100" style="width:80px;top:10%;left:5%;opacity:0.04;">
+          <g><ellipse cx="50" cy="20" rx="10" ry="24" fill="currentColor" transform="rotate(0 50 50)"/><ellipse cx="50" cy="20" rx="10" ry="24" fill="currentColor" transform="rotate(72 50 50)"/><ellipse cx="50" cy="20" rx="10" ry="24" fill="currentColor" transform="rotate(144 50 50)"/><ellipse cx="50" cy="20" rx="10" ry="24" fill="currentColor" transform="rotate(216 50 50)"/><ellipse cx="50" cy="20" rx="10" ry="24" fill="currentColor" transform="rotate(288 50 50)"/><circle cx="50" cy="50" r="7" fill="currentColor"/></g>
+        </svg>
+        <svg viewBox="0 0 100 100" style="width:60px;top:60%;right:8%;opacity:0.035;">
+          <g><ellipse cx="50" cy="20" rx="10" ry="24" fill="currentColor" transform="rotate(0 50 50)"/><ellipse cx="50" cy="20" rx="10" ry="24" fill="currentColor" transform="rotate(72 50 50)"/><ellipse cx="50" cy="20" rx="10" ry="24" fill="currentColor" transform="rotate(144 50 50)"/><ellipse cx="50" cy="20" rx="10" ry="24" fill="currentColor" transform="rotate(216 50 50)"/><ellipse cx="50" cy="20" rx="10" ry="24" fill="currentColor" transform="rotate(288 50 50)"/><circle cx="50" cy="50" r="7" fill="currentColor"/></g>
+        </svg>
+      </div>
+      <div class="parallax-layer" id="parallax-2">
+        <svg viewBox="0 0 100 200" style="width:40px;top:20%;right:15%;opacity:0.03;">
+          <path d="M50 0 Q60 40 45 80 Q30 120 55 160 Q70 190 50 200" stroke="currentColor" stroke-width="2" fill="none"/>
+          <ellipse cx="35" cy="50" rx="10" ry="5" fill="currentColor" transform="rotate(-20 35 50)"/>
+          <ellipse cx="60" cy="110" rx="10" ry="5" fill="currentColor" transform="rotate(20 60 110)"/>
+        </svg>
+        <svg viewBox="0 0 100 200" style="width:35px;bottom:25%;left:10%;opacity:0.025;">
+          <path d="M50 0 Q35 50 55 100 Q70 150 50 200" stroke="currentColor" stroke-width="2" fill="none"/>
+          <ellipse cx="40" cy="70" rx="8" ry="4" fill="currentColor" transform="rotate(-15 40 70)"/>
+        </svg>
+      </div>
+
+      <!-- Album Cover -->
+      <div class="album-container reveal">
+        <div class="album-cover">
+          <img src="./fotos/capa.jpg" alt="Antonio & Melanie" id="album-img"
+               onerror="this.style.background='linear-gradient(135deg,#B0005E,#0A1931)';this.style.minHeight='100%';">
+        </div>
+        <h1 class="album-title">1 mês de puro amor e veracidade</h1>
+        <p class="album-subtitle">
+          <span>Antonio</span> & <span>Melanie</span> ♡ Desde 02 de Maio
+        </p>
+        <div class="time-counter" id="time-counter">
+          <div class="time-unit">
+            <div class="time-value" id="counter-days">0</div>
+            <div class="time-label">Dias</div>
+          </div>
+          <div class="time-unit">
+            <div class="time-value" id="counter-hours">0</div>
+            <div class="time-label">Horas</div>
+          </div>
+          <div class="time-unit">
+            <div class="time-value" id="counter-mins">0</div>
+            <div class="time-label">Minutos</div>
+          </div>
+          <div class="time-unit">
+            <div class="time-value" id="counter-secs">0</div>
+            <div class="time-label">Segundos</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M7 10l5 5 5-5"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- TRACKLIST SECTION -->
+    <section id="tracklist">
+      <div class="section-header reveal">
+        <h2 class="section-title">Nossa Playlist</h2>
+        <p class="section-subtitle">Cada faixa, um pedaço do que sinto por você</p>
+      </div>
+
+      <div class="tracklist-container reveal">
+        <div class="tracklist-header">
+          <span class="th-num">#</span>
+          <span class="th-title">Título</span>
+          <span class="th-dur">🕐</span>
+        </div>
+
+        <!-- Track 1 -->
+        <div class="track-item" data-track="1">
+          <div class="track-row">
+            <div class="track-num">
+              <span class="num-text">1</span>
+              <div class="play-icon"><svg width="12" height="12" viewBox="0 0 12 12"><polygon points="2,0 12,6 2,12" fill="currentColor"/></svg></div>
+              <div class="equalizer"><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span></div>
+            </div>
+            <div class="track-info">
+              <div class="track-title">O Dia Que Tudo Começou</div>
+              <div class="track-artist">Para Mélanie ♡</div>
+            </div>
+            <div class="track-heart">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+            <div class="track-duration">3:45</div>
+          </div>
+          <div class="track-content">
+            <div class="track-content-inner">
+              Mélanie, nós estamos a 1 mês juntos e nesse curto tempo eu aprendi da melhor maneira, como amar alguém de novo, aprendi como é estar em um relacionamento saudável, aprendi como é ter algo recíproco, e eu estou muito feliz ao seu lado, hoje dia 2 a gente está fazendo um mês juntos, e espero que venham muitos outros, meses, anos, décadas. Eu quero passar cada momento da minha vida ao seu lado, momentos bons e ruins. Eu te amo minha princesa, você é realmente a mulher que escolhi para amar pelo resto da minha vida.
+              <span class="signature">Com todo amor, Antonio ♡</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track 2 -->
+        <div class="track-item" data-track="2">
+          <div class="track-row">
+            <div class="track-num">
+              <span class="num-text">2</span>
+              <div class="play-icon"><svg width="12" height="12" viewBox="0 0 12 12"><polygon points="2,0 12,6 2,12" fill="currentColor"/></svg></div>
+              <div class="equalizer"><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span></div>
+            </div>
+            <div class="track-info">
+              <div class="track-title">Cada Segundo Com Você</div>
+              <div class="track-artist">Para Mélanie ♡</div>
+            </div>
+            <div class="track-heart">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+            <div class="track-duration">4:12</div>
+          </div>
+          <div class="track-content">
+            <div class="track-content-inner">
+              Minha garotinha, não sei como explica em palavras, oque eu estou sentindo por você, de verdade, eu só sei que é um sentimento que me faz acorda cada dia, com mais felicidade, você chegou na minha vida mudando tudo, eu hoje só consigo pensar em uma coisa, como melhorar como pessoa para em fim te dá a melhor versão de mim mesmo na qual você vai ser a única pessoa que vai ter, eu quero te fazer a mulher mais feliz do mundo, quero estar presente em todos os momentos da sua vida, e fazer com que até os momentos ruins, sejam momentos passageiros, eu te amo muito, e como já te disse várias vezes, você está comigo agora e eu vou fazer tudo que eu puder, possível é impossível, para poder te fazer feliz para ver seu sorriso que sinceramente é a melhor parte do meu fim de semana. Meu amor, eu não consigo passa mais uma semana em paz, sem dormi e pensar em você, contar literalmente os minutos para ver você no final de semana, eu amo você, desde o nosso primeiro beijo nossa primeira conversa eu não tirei mais você da mente, eu não me vejo mais com outra mulher que não seja você. Eu amo sua presença, sua voz me trás calma, seu sorriso me consola, seu abraço me conforta, seu beijo me trás calma. Você é a melhor parte de mim e eu amo dividir a vida ao seu lado,
+              <span class="signature">Seu pra sempre, Antonio ♡</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track 3 -->
+        <div class="track-item" data-track="3">
+          <div class="track-row">
+            <div class="track-num">
+              <span class="num-text">3</span>
+              <div class="play-icon"><svg width="12" height="12" viewBox="0 0 12 12"><polygon points="2,0 12,6 2,12" fill="currentColor"/></svg></div>
+              <div class="equalizer"><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span><span class="eq-bar"></span></div>
+            </div>
+            <div class="track-info">
+              <div class="track-title">Promessas de Eternidade</div>
+              <div class="track-artist">Para Mélanie ♡</div>
+            </div>
+            <div class="track-heart">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </div>
+            <div class="track-duration">5:01</div>
+          </div>
+          <div class="track-content">
+            <div class="track-content-inner">
+              Mel, Mélanie, meu amor, vida, não sei como você mais gosta q eu te chame kkkkk, mas você sempre vai ser uma princesa aos meus olhos. Minha princesa, te amo e não é pouco, não sei quando esse sentimento de amor começou, mas sei dizer claramente que é o melhor que já senti em toda minha vida, um dia eu simplismente não conseguia mais aguentar e tive que falar para você, Mélanie eu te amo, eu sinto sua falta. Depois que você passou aquele fim de semana aqui em Petrolina sinceramente eu não consigo mais ficar um dia se quer sem lembrar de você aqui comigo, deitada comigo, abraçada comigo, no sofá na cama, não importa aonde fosse, eu preciso ter você comigo, seu abraço carinhoso e caloroso, seu beijo quente e aconchegante, sua voz doce. Eu amo muito, sua presença, eu não me vejo indo para Remanso e não ver você na hora que eu chegar ou falando com sua mãe antes de nós dois sair, você se tornou a razão pela qual eu estou procurando mudança em tudo, para te proporcionar o melhor. Eu vejo você no meu futuro, vejo nosso casamento, vejo sua formatura, vejo a minha formatura e em ambas nós dois juntos, sendo você a primeira pessoa que eu vou beijar e abraçar após pega um diploma, após passar num concurso, ganhar uma luta, eu quero que seja você a primeira que vou abraçar e beijar é você. Eu quero dividir tudo ao seu lado, hoje não tenho muito para te proporcionar mas sei que você mesmo no pouco tá disposta a estar comigo, eu planejo muitas coisas mas de um tempo para cá todos os meus planos tem você, e assim como a música de Hungria (Nosso plano) que por ventura, você disse q ngm nunca te dedicou, sim agora eu te dedico ela, eu sempre pensei em você ouvindo ela e muitas outras e foi a música q eu repeti várias vezes quando estávamos juntos. Nossos planos, e eu vou realizar todos esses planos e sonhos ao seu lado, nós vamos realizar nossos sonhos e planos juntos. Não vai existir dificuldade, barreira ou pessoa que possa impedir, a gente de ficar juntos eu estou com você para tudo, não importa oque eu tenha que abrir mão ou oque vai acontecer depois você nunca mais vai estar sozinha, nunca mais vai dormi sem um boa noite minha princesa ou acorda sem um bom dia meu amor. Não vejo a hora de acorda ao seu lado todos os dias e poder te dá esse bom dia e boa noite todos os dias. Eu amo muito você Mélanie Pereira de Jesus e quero ver seu nome sendo Mélanie Pereira de Matos em breve. Te amo minha futura esposa e mãe dos meus filhos.
+              <span class="signature">Te amo infinito, Antonio ♡</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLAROID GALLERY -->
+    <section id="galeria">
+      <div class="section-header reveal">
+        <h2 class="section-title">Nossas Memórias</h2>
+        <p class="section-subtitle">Cada foto, um pedacinho nosso</p>
+      </div>
+
+      <div class="polaroid-grid reveal" id="polaroid-grid">
+        <!-- Polaroids are generated by JS -->
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+      <div class="reveal">
+        <div class="footer-divider"></div>
+        <p class="footer-message">Para sempre, nós dois ♡</p>
+        <p class="footer-credits">Feito com <span class="heart">♡</span> por Antonio para Melanie</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- VINYL PLAYER (fixed) -->
+  <div id="vinyl-player" style="display:none;">
+    <div class="vinyl-disc" id="vinyl-disc">
+      <div class="vinyl-center-label">
+        <svg viewBox="0 0 12 12"><polygon points="3,0 12,6 3,12"/></svg>
+      </div>
+    </div>
+    <div class="vinyl-tooltip">Clique para tocar ♡</div>
+  </div>
+
+  <!-- Background Audio -->
+  <audio id="bg-music" src="./musica/fundo.mp3" loop preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
